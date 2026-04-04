@@ -1,0 +1,21 @@
+# TransolverModelConfig structure
+name: transolver0
+d_model: ${model_width}
+num_layers: ${model_depth}
+
+# lifting part
+embed_position:
+  name: sinusoidal
+  num_freqs: 63 # 63 * 2 * 3 = 378, very close to our model_width=384
+  min_freqs_exp: -1.0
+  max_freqs_exp: 6.0
+
+lifting:
+  num_hidden_layers: 0
+  hidden_features: 256
+  act: "silu"
+  bias: true
+
+attn_heads: ${model_attn_heads}
+mlp_ratio: 2.66666
+slice_num: ${model_modes}

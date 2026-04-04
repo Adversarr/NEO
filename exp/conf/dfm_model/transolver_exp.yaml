@@ -1,0 +1,52 @@
+# TransolverModelConfig structure
+name: transolver_experimental
+d_model: ${dfm_model_width}
+num_layers: ${dfm_model_depth}
+num_registers: 0 
+layer_scale_init: 0
+
+# lifting part - minimal since we are already in latent space or re-embedding
+embed_position:
+  name: sinusoidal
+  num_freqs: 24
+  min_freqs_exp: -2.0
+  max_freqs_exp: 6.0
+
+lifting:
+  num_hidden_layers: 0
+  hidden_features: 256
+  act: "silu"
+  bias: true
+
+# project part - to 3D deformation
+project:
+  num_hidden_layers: 1
+  hidden_features: 256
+  act: "silu"
+  bias: true
+
+# Transolver Block
+attn:
+  num_heads: ${dfm_model_attn_heads}
+  modes: ${dfm_model_modes}
+  bias: true
+  dim_heads: ${dfm_model_attn_dim_heads}
+  enable_rope: false
+  rope_min_log_freq: -5
+  rope_max_log_freq: 3
+  qk_norm: true
+  norm_type: rmsnorm
+  ffn:
+    mlp_ratio: 2.66666
+    bias: true
+    act: "silu"
+    hidden_features:
+
+
+ffn:
+  mlp_ratio: 2.66666
+  bias: true
+  act: "silu"
+  hidden_features:
+
+ffn_norm_type: rmsnorm

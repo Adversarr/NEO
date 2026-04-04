@@ -1,0 +1,8 @@
+name: smplx_deform
+train_file: ldata/preprocessed_deform/train_full-lap.hdf5
+val_file: ldata/preprocessed_deform/val_full-lap.hdf5
+batch_size: 16
+num_workers: 4
+enable_rotate: 0.0
+target_k: 128
+delta: 1.0

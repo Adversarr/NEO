@@ -1,0 +1,45 @@
+defaults:
+  - base
+  - _self_
+  - datamod: selfsup
+
+experiment_name: shapenet_sft
+
+# Hyparams for Self supervising
+
+# A = L + delta * M
+# Balance the ratio between mass matrix and stiffness matrix
+balancing_delta: 3.0
+n_samples: ${targ_dim_model}
+precision: bf16-mixed
+log_every_n_steps: 10
+
+from_supervised: 
+self_supervised_ckpt:
+freeze_pretrained: false
+debug: false
+ckpt_pretrain:  # The checkpoint from STAGE 1
+ckpt_full:      # The checkpoint from this stage.
+
+
+training_metrics:
+    - name: projectfrob
+      kwargs:
+        use_root: false
+
+    # Slightly encourage the output to be orthogonal to each other
+    - name: selfdistance
+      weight: 1e-3
+      kwargs:
+        epsilon: 1e-8
+        asymmetric: true
+
+epochs: 50
+optimizer:
+  betas: [0.9, 0.95]
+  # post training usually use a smaller weight decay to avoid catastrophic forgetting
+  weight_decay: 0.004
+  max_lr: 1.0e-4
+
+gradient_clip_val: 1.0
+rq_use_sqrt: false

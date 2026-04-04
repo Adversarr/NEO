@@ -1,0 +1,32 @@
+[build-system]
+requires = [
+  "scikit-build-core>=0.11",
+  "packaging>=23.2",
+]
+build-backend = "scikit_build_core.build"
+
+[project]
+name = "pypcdlaplace"
+version = "0.1.0"
+description = "Python bindings for the Belkin-Sun-Wang point-cloud Laplace operator"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "numpy>=1.21",
+  "scipy>=1.8",
+]
+
+[tool.scikit-build]
+cmake.build-type = "Release"
+
+[tool.scikit-build.sdist]
+include = [
+  "CMakeLists.txt",
+  "README.md",
+  "pcdlaplace/**",
+  "pypcdlaplace/**",
+  "src/**",
+  "tests/**",
+  "ext/pybind11/**",
+  "ext/cgal/**",
+]

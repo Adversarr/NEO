@@ -1,0 +1,15 @@
+# SHREC16 classification datamodule configuration
+batch_size: ${batch_size}
+data_dir: ldata/processed_shrec16
+train_files: "*train_cls.hdf5"
+test_files: "*test_cls.hdf5"
+
+enable_rotate: 6.28
+name: shrec16
+num_workers: 4
+pin_memory: True
+prefetch_factor: 4
+n_class: 30
+n_points: 2048
+use_mesh_laplacian: False
+limit_train: 300

@@ -1,0 +1,54 @@
+defaults:
+  - base
+  - datamod: shapenet_h5
+  - _self_
+
+experiment_name: final_pretrain_${datamod.name}
+
+noise_ratio: 0.68
+noise_final: 0.0
+noise_initial: 0.0
+noise_schedule: cosine
+ortho_algorithm: qr
+masking_algorithm: dropout_permute # none
+masking_dropout_p_lower: 0.0
+# TODO: Fixme, upper must be zero.
+masking_dropout_p_upper: 0.0 # Drop half of the point cloud
+masking_plane_height: 0.1
+
+training_metrics:
+    - name: projectfrob
+      kwargs:
+        use_root: false
+
+    # Slightly encourage the output to be orthogonal to each other
+    - name: selfdistance
+      weight: 1e-4
+      kwargs:
+        epsilon: 1e-8
+        asymmetric: false
+
+validation_metrics:
+    - name: projectfrob
+      weight: 1.0
+      kwargs:
+        use_root: false
+
+    - name: inversespan
+      weight: 1.0
+      kwargs:
+        norm: 1
+
+precision: 16-mixed
+
+datamod:
+  batch_size: ${batch_size}
+  data_dir: ldata/preprocessed_tet_h5
+  enable_rotate: 6.283
+  name: tet
+  num_workers: 4
+  pin_memory: True
+  prefetch_factor: 4
+  split_ratio: 0.9
+  targ_dim: ${targ_dim}
+  seed: 42

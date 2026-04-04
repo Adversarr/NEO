@@ -1,0 +1,43 @@
+defaults:
+  - base
+  - datamod: normal
+  - nrm_model: pointnet2
+  - _self_
+
+experiment_name: normal_${datamod.name}
+run_name: default
+
+# pretrained transfer options
+ckpt_pretrain: null
+freeze_pretrained: false
+
+# loss options
+use_abs_diff: true
+
+nrm_model_depth: 6
+nrm_model_width: 128
+nrm_model_attn_heads: 4
+nrm_model_modes: 64
+nrm_model_attn_dim_heads: 48
+
+targ_dim_model: 256
+
+epochs: 100
+batch_size: 16
+accumulate_grad_batches: 1
+strategy: auto
+precision: 16-mixed
+fast_dev_run: false
+gradient_clip_val: 1.0
+check_val_every_n_epoch: 1
+
+optimizer:
+  name: adamw
+  max_lr: 1.0e-3
+  weight_decay: 1e-4
+
+scheduler:
+  name: onecycle
+  warmup: 0.1
+
+export_json: null

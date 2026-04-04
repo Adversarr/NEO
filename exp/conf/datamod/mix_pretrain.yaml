@@ -1,0 +1,10 @@
+batch_size: ${batch_size}
+data_dir: ldata/pretrain-merged
+enable_rotate: 6.283
+name: mixed
+num_workers: 4
+pin_memory: True
+prefetch_factor: 2
+split_ratio: 0.9
+targ_dim: ${targ_dim}
+recursive: True

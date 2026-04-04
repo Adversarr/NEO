@@ -1,0 +1,2 @@
+python exp/downstream/correspondence.py model_depth=6 freeze_pretrained=true ckpt_pretrain=checkpoints/PerModern/PerModern-8192.ckpt batch_size=32
+python exp/downstream/correspondence.py model=only_pos_embed batch_size=32

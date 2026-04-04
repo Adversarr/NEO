@@ -1,0 +1,30 @@
+name: point_transformer
+d_model: ${corr_model_width}
+num_layers: ${corr_model_depth}
+
+embed_position:
+  name: no_embed
+  num_freqs: 16
+  min_freqs_exp: -1.0
+  max_freqs_exp: 6.0
+
+lifting:
+  num_hidden_layers: 0
+  hidden_features: 256
+  act: "silu"
+  bias: true
+
+project:
+  num_hidden_layers: 0
+  hidden_features: 256
+  act: "silu"
+  bias: true
+
+# PointTransformer Block
+# TODO: Confirm neighbor graph preference (knn vs radius).
+# Reason: Current implementation uses knn_graph consistent with PyG examples.
+k: 16
+pos_mlp_hidden: ${corr_model_width}
+act: "silu"
+bias: true
+norm_type: "layer"

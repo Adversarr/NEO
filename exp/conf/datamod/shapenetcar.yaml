@@ -1,0 +1,7 @@
+data_dir: ldata/shapenet_car/
+train: 'train.h5'
+val: 'val.h5'
+batch_size: 1
+num_workers: 2
+pin_memory: True
+prefetch_factor: 2

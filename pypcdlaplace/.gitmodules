@@ -1,0 +1,6 @@
+[submodule "ext/pybind11"]
+	path = ext/pybind11
+	url = https://github.com/pybind/pybind11.git
+[submodule "ext/cgal"]
+	path = ext/cgal
+	url = https://github.com/CGAL/cgal.git

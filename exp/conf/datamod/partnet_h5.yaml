@@ -1,0 +1,12 @@
+name: partnet
+batch_size: ${batch_size}
+data_dir: ldata/processed_sgpn
+n_points: 4096
+enable_rotate: 0.15
+num_workers: 4
+pin_memory: True
+prefetch_factor: 4
+limit_train: 0
+train_glob: train-${datamod.case}*_pc.hdf5
+test_glob: val-${datamod.case}*_pc.hdf5
+case: Bed-1

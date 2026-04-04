@@ -1,0 +1,23 @@
+# Assuming the data is structured as follows:
+# /data/processed_human_sig17/
+# ├── human_sig17_test_labels.hdf5
+# ├── human_sig17_test_mesh.hdf5
+# ├── human_sig17_train_labels.hdf5
+# └── human_sig17_train_mesh.hdf5
+
+# DataModule configuration
+name: human_sig17
+batch_size: ${batch_size}
+data_dir: ldata/processed_human_sig17
+# regex pattern to match the files
+train_files: "*train_labels.hdf5"
+test_files: "*test_labels.hdf5"   # Also for validation
+
+enable_rotate: 6.283
+num_workers: 4
+pin_memory: True
+prefetch_factor: 4
+n_class: 8
+n_points: 8192
+use_mesh_laplacian: False
+limit_train: 0

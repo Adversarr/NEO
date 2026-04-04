@@ -1,0 +1,58 @@
+defaults:
+  - base
+  - _self_
+  - datamod: selfsup
+
+experiment_name: shapenet_sft
+
+# Hyparams for Self supervising
+
+# A = L + delta * M
+# Balance the ratio between mass matrix and stiffness matrix
+balancing_delta: 10.0
+n_samples: ${targ_dim_model}
+precision: bf16-mixed
+log_every_n_steps: 10
+
+from_supervised: 
+self_supervised_ckpt:
+freeze_pretrained: false
+debug: false
+ckpt_pretrain:  # The checkpoint from STAGE 1
+ckpt_full:      # The checkpoint from this stage.
+
+
+training_metrics:
+    - name: projectfrob
+      kwargs:
+        use_root: false
+      weight: 1.0
+
+    # Slightly encourage the output to be orthogonal to each other
+    - name: selfdistance
+      weight: 1.0e-3
+      kwargs:
+        epsilon: 1e-8
+        asymmetric: true
+
+epochs: 50
+optimizer:
+  name: adamw
+  betas: [0.9, 0.999]
+  weight_decay: 1.0e-6
+  max_lr: 5.0e-5
+
+scheduler:
+  name: onecycle
+  warmup: 0.3
+  final_lr: 1e-6
+gradient_clip_val: 1.0
+rq_use_sqrt: false
+rq_weight: 1.0e-1
+
+# If true, only train the additive part of the model that not trained from pretrained model.
+additive_only: true
+# If true, use TransolverExpModel_Adapted.
+use_adapted_transolver: true
+adaptor_ratio: 0.0625
+warmup_steps_rq_loss: 200

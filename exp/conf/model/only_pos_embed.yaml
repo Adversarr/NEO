@@ -1,0 +1,23 @@
+# OnlyPositionalEmbeddingModelConfig structure
+name: only_pos_embed
+d_model: ${model_width}
+
+# lifting part
+embed_position:
+  name: sinusoidal
+  num_freqs: 63
+  min_freqs_exp: -1.0
+  max_freqs_exp: 6.0
+
+lifting:
+  num_hidden_layers: 0
+  hidden_features: 256
+  act: "silu"
+  bias: false
+
+# project part
+project:
+  num_hidden_layers: -1
+  hidden_features: 256
+  act: "silu"
+  bias: false

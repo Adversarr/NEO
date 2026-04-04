@@ -1,0 +1,40 @@
+defaults:
+  - base
+  - datamod: shapenetcar
+  - _self_
+
+experiment_name: solve_shapenetcar
+run_name: default
+
+# pretrained transfer options
+ckpt_pretrain:
+freeze_pretrained: false
+precision: 32
+# Be careful, our model has more capacity and is more likely to overfit.
+sol_model_width: 64
+sol_model_depth: 3
+sol_model_attn_heads: 4 # Use large head dim to avoid overfitting
+sol_model_modes: ${sol_model_width}
+sol_model_attn_dim_heads: 12
+
+sol_model:
+  project:
+    num_hidden_layers: 0
+  embed_position:
+    name: direct
+    num_freqs: 20 # 128/6 = 21.3 => 20
+  attn:
+    enable_rope: false
+
+optimizer:
+  name: adamw
+  max_lr: 1e-3
+  weight_decay: 1e-1
+  betas: [0.9, 0.999]
+
+
+scheduler:
+  name: onecycle
+  warmup: 0.3
+
+epochs: 200

@@ -1,0 +1,50 @@
+defaults:
+  - base
+  - _self_
+  - datamod: shapenet_h5
+
+experiment_name: pretrain_${datamod.name}
+
+noise_ratio: 0.68
+noise_final: 0.0
+noise_initial: 0.5
+noise_schedule: linear
+ortho_algorithm: qr
+masking_algorithm: dropout_permute # none
+masking_dropout_p_lower: 0.0
+# TODO: Fixme, upper must be zero.
+masking_dropout_p_upper: 1 # Drop half of the point cloud
+masking_plane_height: 0.1
+
+training_metrics:
+    - name: projectfrob
+      kwargs:
+        use_root: false
+
+    # Slightly encourage the output to be orthogonal to each other
+    - name: selfdistance
+      weight: 0.05
+      kwargs:
+        epsilon: 1e-8
+        asymmetric: true
+
+validation_metrics:
+    - name: projectfrob
+      weight: 1.0
+      kwargs:
+        use_root: false
+
+    - name: inversespan
+      weight: 1.0
+      kwargs:
+        norm: 1
+
+precision: bf16-mixed
+
+div_weight: 1.0
+koleo_weight: 0.2
+ewa_alpha_start: 0.996
+ewa_alpha_end: 0.9998
+student_temperature: 0.1
+teacher_temperature: 0.04
+momentum_C: 0.9

@@ -1,0 +1,10 @@
+batch_size: ${batch_size}
+data_dir: ldata/processed_FAUST_corr
+enable_rotate: 6.283
+num_workers: 4
+pin_memory: True
+prefetch_factor: 2
+train_files: "*train_corr.hdf5"
+test_files: "*test_corr.hdf5"
+k_corr: 30
+limit_train: 0

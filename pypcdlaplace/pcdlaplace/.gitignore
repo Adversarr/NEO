@@ -1,0 +1,40 @@
+# CMake stuff
+CMakeCache.txt
+CMakeFiles
+Makefile
+cmake_install.cmake
+install_manifest.txt
+
+# Eclipse stuff
+.cproject
+.project
+
+# Output dir
+bin/
+build/
+lib/
+
+# Data files
+data/
+
+# Temporary objects/files
+*~
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+
+# Executables
+*.exe
+*.out
+*.app

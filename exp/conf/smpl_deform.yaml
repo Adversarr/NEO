@@ -1,0 +1,50 @@
+defaults:
+  - base
+  - datamod: smplx_deform
+  - _self_
+  - dfm_model: transolver_exp
+
+experiment_name: smpl_deform_${datamod.name}
+run_name: null
+
+# Loss weights
+lambda_v: 1.0
+lambda_g: 0.0
+pose_dim: 153 # SMPL pose dim usually 24*3 + 3 = 75 or similar? The dataset has "poses" key.
+
+epochs: 100
+check_val_every_n_epoch: 1
+
+optimizer:
+  name: adamw
+  lr: 1.0e-3
+  weight_decay: 1.0e-4
+  betas: [0.9, 0.999]
+
+scheduler:
+  name: cosine
+  warmup: 0.1
+  final_lr: 1.0e-6
+
+# Validation metrics (optional, if using the generic metric system)
+validation_metrics: []
+training_metrics: []
+
+precision: 32 # or 16-mixed
+strategy: auto
+accumulate_grad_batches: 1
+gradient_clip_val: 10.0
+profile: false
+fast_dev_run: false
+overfit_batches: 0.0
+seed: 42
+
+dfm_model_width: 128
+dfm_model_depth: 4
+dfm_model_attn_heads: 4
+dfm_model_attn_dim_heads: 48
+dfm_model_modes: 64
+
+# pretrained transfer options
+ckpt_pretrain:
+freeze_pretrained: false

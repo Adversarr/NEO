@@ -1,0 +1,2 @@
+python exp/downstream/seg.py run_name=with-pretrain model_depth=6 ckpt_pretrain=checkpoints/PerModern/PerModern-8192.ckpt freeze_pretrained=True
+python exp/downstream/seg.py run_name=no-pretrain model=only_pos_embed # nerf

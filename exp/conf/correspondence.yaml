@@ -1,0 +1,28 @@
+defaults:
+  - base
+  - _self_
+  - datamod: FAUST_corr
+  - corr_model: transolver_experimental
+
+experiment_name: corr_experiment
+run_name: default
+
+# pretrained transfer options
+ckpt_pretrain:
+freeze_pretrained: false
+
+corr_model_width: 128
+corr_model_depth: 4
+corr_model_attn_heads: 6
+corr_model_modes: 4
+corr_model_attn_dim_heads: 24
+batch_size: 32
+precision: 32
+check_val_every_n_epoch: 1
+epochs: 100
+
+optimizer:
+  max_lr: 3.0e-4
+  name: adamw
+  betas: [0.9, 0.999]
+  weight_decay: 0.01

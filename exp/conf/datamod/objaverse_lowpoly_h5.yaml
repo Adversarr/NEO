@@ -1,0 +1,9 @@
+name: objaverse_lowpoly_h5
+data_dir: ldata/processed_objaverse_lowpoly_h5
+batch_size: ${batch_size}
+enable_rotate: 6.283
+num_workers: 4
+pin_memory: True
+prefetch_factor: 4
+split_ratio: 0.9
+targ_dim: ${targ_dim}

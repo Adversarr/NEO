@@ -1,0 +1,16 @@
+[build-system]
+requires = ["scikit-build-core>=0.11.2"]
+build-backend = "scikit_build_core.build"
+
+[project]
+name = "pyfastspectrum"
+version = "0.1.0"
+description = "pybind11 bindings for FastSpectrum"
+requires-python = ">=3.10"
+dependencies = [
+  "numpy",
+  "scipy",
+]
+
+[tool.scikit-build]
+build-dir = "build/{wheel_tag}"

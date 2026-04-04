@@ -1,0 +1,10 @@
+name: processed_shapenet
+data_dir: ldata/processed_shapenet
+batch_size: ${batch_size}
+targ_dim: ${targ_dim}
+split_ratio: 0.9
+per_mesh_count: 2
+enable_rotate: 6.283
+num_workers: 4
+pin_memory: True
+prefetch_factor: 4

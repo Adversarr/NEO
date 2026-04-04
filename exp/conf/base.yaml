@@ -1,0 +1,40 @@
+### Base configuration shared for all experiments
+
+defaults:
+  - optim
+  - model: transolver_experimental
+  - sol_model: transolver_next
+
+seed: 3407
+run_name:
+experiment_name: basic_experiment
+
+# Training related
+epochs: 500
+batch_size: 128
+fast_dev_run: false
+check_val_every_n_epoch: 5
+overfit_batches: 0
+strategy: auto
+precision: 32
+logger: mlflow
+profile: false
+log_every_n_steps: 50
+gradient_clip_val: 10
+
+# Model related
+targ_dim: 96
+targ_dim_model: 256
+
+model_width: ${targ_dim_model} # such that the output could be direcly used.
+model_depth: 6
+model_modes: ${model_width}
+model_attn_heads: 4 # => d_head * nhead = 288 = model_width
+model_attn_dim_heads: 72
+
+# Solver model related
+sol_model_width: ${model_width}
+sol_model_depth: 4
+sol_model_modes: ${sol_model_width}
+sol_model_attn_heads: ${model_attn_heads}
+sol_model_attn_dim_heads: ${model_attn_dim_heads}

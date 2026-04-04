@@ -1,0 +1,15 @@
+optimizer:
+  max_lr: 5.0e-4
+  name: muon
+  betas: [0.9, 0.99]
+  weight_decay: 0.04
+
+scheduler:
+  name: wsd
+  warmup: 0.1
+  stable: 0.7
+  schedule: exp
+  final_lr: 1e-6
+
+accumulate_grad_batches: 1
+gradient_clip_val: 1.0

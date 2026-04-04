@@ -1,0 +1,43 @@
+defaults:
+  - base
+  - _self_
+  - datamod: shapenet_h5
+
+experiment_name: final_pretrain_${datamod.name}
+
+noise_ratio: 0.68
+noise_final: 0.0
+noise_initial: 0.0
+noise_schedule: cosine
+ortho_algorithm: qr
+masking_algorithm: dropout_permute # none
+masking_dropout_p_lower: 0.0
+masking_dropout_p_upper: 0.0 # Drop half of the point cloud
+masking_plane_height: 0.1
+
+training_metrics:
+    - name: neurkitt
+      kwargs:
+        use_root: false
+
+    # Slightly encourage the output to be orthogonal to each other
+    - name: selfdistance
+      weight: 1e-3
+      kwargs:
+        epsilon: 1e-8
+        asymmetric: false
+
+validation_metrics:
+    - name: neurkitt
+      weight: 1.0
+    - name: projectfrob
+      weight: 0.0
+      kwargs:
+        use_root: false
+
+    - name: inversespan
+      weight: 0.0
+      kwargs:
+        norm: 1
+
+precision: 16-mixed

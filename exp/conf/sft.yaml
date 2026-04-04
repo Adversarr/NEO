@@ -1,0 +1,45 @@
+defaults:
+  - base
+  - datamod: sft
+  - _self_
+
+experiment_name: sft_${datamod.name}
+
+training_metrics:
+  - name: projectfrob
+    weight: 1.0
+    kwargs:
+      use_root: false
+
+validation_metrics:
+  - name: projectfrob
+    weight: 1.0
+    kwargs:
+      use_root: false
+  - name: inversespan
+    weight: 1.0
+    kwargs:
+      norm: 2
+
+# Override base config
+epochs: 20
+batch_size: 32
+ckpt_pretrain: 
+log_every_n_steps: 5
+check_val_every_n_epoch: 1
+noise_schedule: disable
+
+# Optimizer and Scheduler recommendation for SFT
+optimizer:
+  name: muon
+  max_lr: 5.0e-5
+  weight_decay: 1.0e-2
+  betas: [0.9, 0.99]
+
+scheduler:
+  name: cosine
+  warmup: 0.05
+  final_lr: 1.0e-6
+
+accumulate_grad_batches: 4 # 32 * 4 = 128 per GPU
+gradient_clip_val: 1.0

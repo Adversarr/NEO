@@ -1,0 +1,31 @@
+defaults:
+  - base
+  - datamod: human_seg
+  - seg_model: pointnet2
+  - _self_
+
+experiment_name: seg_${datamod.name}
+run_name: default
+
+# pretrained transfer options
+ckpt_pretrain:
+freeze_pretrained: false
+
+
+seg_model_depth: 6
+seg_model_width: 128
+seg_model_attn_heads: 4
+seg_model_modes: 64
+seg_model_attn_dim_heads: 48
+epochs: 100
+batch_size: 8
+optimizer:
+  name: adamw
+  max_lr: 1.0e-3
+  weight_decay: 1e-4
+
+scheduler:
+  name: onecycle
+  warmup: 0.3
+
+export_json: null

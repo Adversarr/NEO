@@ -1,0 +1,42 @@
+name: transolver
+d_model: ${seg_model_width}
+num_layers: ${seg_model_depth}
+
+embed_position:
+  name: no_embed
+  num_freqs: 16
+  min_freqs_exp: -1.0
+  max_freqs_exp: 6.0
+
+lifting:
+  num_hidden_layers: 0
+  hidden_features: 256
+  act: "silu"
+  bias: true
+
+project:
+  num_hidden_layers: 0
+  hidden_features: 256
+  act: "silu"
+  bias: true
+
+attn:
+  num_heads: ${seg_model_attn_heads}
+  modes: ${seg_model_modes}
+  bias: false
+  dim_heads: ${seg_model_attn_dim_heads}
+  enable_rope: true
+  rope_min_log_freq: -5
+  rope_max_log_freq: 3
+  qk_norm: true
+  norm_type: layernorm
+  subgen_enable_temperature: false
+  sdpa_dropout_p: 0.0
+
+ffn:
+  mlp_ratio: 2.66666
+  bias: false
+  act: "silu"
+  hidden_features:
+
+ffn_norm_type: layernorm

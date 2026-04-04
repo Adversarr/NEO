@@ -1,0 +1,25 @@
+defaults:
+  - base
+  - _self_
+  - datamod: selfsup
+
+experiment_name: shapenet_sft
+
+# Hyparams for Self supervising
+
+# A = L + delta * M
+# Balance the ratio between mass matrix and stiffness matrix
+balancing_delta: 3.0 
+n_samples: ${targ_dim_model}
+precision: bf16-mixed
+
+from_supervised: 
+self_supervised_ckpt:
+freeze_pretrained: true
+debug: false
+ckpt_pretrain:  # The checkpoint from STAGE 1
+ckpt_full:             # The checkpoint from this stage.
+
+# EWA for eig model
+enable_ewa_eig_model: false
+ewa_alpha_start: 0.999

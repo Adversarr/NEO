@@ -1,0 +1,10 @@
+name: sft
+data_dir: /home/adversarr/Repo/g2pt/data/processed_shapenet
+n_points: 4096
+batch_size: ${batch_size}
+enable_rotate: 6.283
+num_workers: 16
+pin_memory: true
+prefetch_factor: 2
+split_ratio: 0.9
+target_k: ${targ_dim} # This can change the number of eigenvalues calculated

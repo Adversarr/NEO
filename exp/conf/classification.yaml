@@ -1,0 +1,30 @@
+defaults:
+  - base
+  - _self_
+  - datamod: shrec16_cls
+  - cls_model: pointnet2
+
+experiment_name: cls_${datamod.name}
+run_name: default
+
+# pretrained transfer options
+ckpt_pretrain:
+freeze_pretrained: false
+
+cls_model_depth: 4
+cls_model_width: 128
+cls_model_attn_heads: 4
+cls_model_modes: 64
+cls_model_attn_dim_heads: 48
+
+use_transolver2_model_head: true
+
+epochs: 300
+batch_size: 4
+optimizer:
+  name: adamw
+  weight_decay: 1e-2
+
+scheduler:
+  name: onecycle
+  warmup: 0.3

@@ -1,0 +1,10 @@
+batch_size: ${batch_size}
+data_dir: ldata/preprocessed_shapenet_h5
+enable_rotate: 6.283
+name: shapenet_h5
+num_workers: 4
+pin_memory: True
+prefetch_factor: 4
+split_ratio: 0.9
+targ_dim: ${targ_dim}
+seed: 42

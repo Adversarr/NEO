@@ -1,0 +1,14 @@
+[build-system]
+requires = ["scikit-build-core>=0.10", "cmake>=3.18", "ninja>=1.11"]
+build-backend = "scikit_build_core.build"
+
+[project]
+name = "pyspec"
+version = "0.1.0"
+description = "Minimal Python bindings for Spectra's symmetric generalized shift-invert eigensolver"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.24", "scipy>=1.10"]
+
+[tool.scikit-build]
+wheel.packages = ["pyspec"]

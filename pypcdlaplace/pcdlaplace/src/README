@@ -1,0 +1,77 @@
+This file contains information about the PCDLaplace code which computes the 
+Laplace operator from point cloud based on the paper "Constructing Laplace 
+Operator from Point Clouds in $R^d$",  Mikhail Belkin, Jian Sun and Yusu Wang, 
+SODA 2009.  The code is written by jian sun.  
+
+The source code as well as the binary code is distributed for Linux. 
+The source code is ready to be compiled on other platform though it
+is not tested. 
+
+DESCRIPTION
+	The PCDLaplace program reads an input file which contains the coordinates of
+	the input point cloud and compute the point cloud laplace matrix. The program is
+	written in C++, see lpmatrix.h for the routines that compute the laplace
+	matrix.  It also provides matlab interface: pcdlp_matrix.m, which has self
+	contained desription. eigen_demo.m gives an example on computing the
+   eigenfunctions and eigenvalues of the laplace operator, and fun_demo give 
+	an example on applying the laplace operator on a fixed function. 
+
+LEGAL TERMS
+	THIS SOFTWARE IS PROVIDED "AS-IS". THERE IS NO WARRANTY OF ANY KIND.
+   THE AUTHORS WILL BE LIABLE FOR ANY DAMAGES OF ANY KIND, EVEN IF ADVISED 
+	OF SUCH POSSIBILITY.
+ 
+   This software is copyrighted by Jian Sun (sunjian@stanford.edu)
+   This program is for academic research use only. 
+
+	This program uses CGAL.
+	The CGAL library's license (which applies to the CGAL library ONLY
+	and NOT to this program itself) is as follows:
+	
+	Copyright (c) 1997-2001 The CGAL Consortium
+	This software and related documentation is part of the Computational 
+	Geometry Algorithms Library (CGAL).
+	This software and documentation is provided "as-is" and without warranty
+	of any kind. In no event shall the CGAL Consortium be liable for any
+	damage of any kind.
+	
+	Every use of CGAL requires a license.
+	Academic research and teaching license
+	- For academic research and teaching purposes, permission to use and copy
+	the software and its documentation is hereby granted free of charge,
+	provided that it is not a component of a commercial product, and this
+	notice appears in all copies of the software and related documentation.
+
+	Commercial licenses
+	- A commercial license is available through Algorithmic Solutions, who also
+		markets LEDA (http://www.algorithmic-solutions.de).
+	- Commercial users may apply for an evaluation license by writing to
+		Algorithmic Solutions (contact@algorithmic-solutions.com).
+
+	The CGAL Consortium consists of Utrecht University (The Netherlands),
+	ETH Zurich (Switzerland), Free University of Berlin (Germany),
+	INRIA Sophia-Antipolis (France), Martin-Luther-University Halle-Wittenberg
+	(Germany), Max-Planck-Institute Saarbrucken (Germany), RISC Linz (Austria),
+	and Tel-Aviv University (Israel).
+
+	This program uses geodesic (http://code.google.com/p/geodesic/)
+	It has the MIT license:
+	Permission is hereby granted, free of charge, to any person obtaining a copy
+	of this software and associated documentation files (the "Software"), to deal
+	in the Software without restriction, including without limitation the rights
+	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	copies of the Software, and to permit persons to whom the Software is
+	furnished to do so, subject to the following conditions:
+
+	The above copyright notice and this permission notice shall be included in
+	all copies or substantial portions of the Software.
+
+	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	THE SOFTWARE.
+
+

@@ -1,0 +1,31 @@
+name: pointnet2
+d_model: ${nrm_model_width}
+
+embed_position:
+  name: no_embed
+  num_freqs: 16
+  min_freqs_exp: -1.0
+  max_freqs_exp: 6.0
+
+lifting:
+  num_hidden_layers: 0
+  hidden_features: 256
+  act: "silu"
+  bias: true
+
+project:
+  num_hidden_layers: 0
+  hidden_features: 256
+  act: "silu"
+  bias: true
+
+# PointNet2-specific hyperparameters
+act: "silu"
+bias: true
+sa_ratios: [0.2, 0.25]
+sa_radii: [0.2, 0.4]
+sa_channels:
+  - ${nrm_model_width}
+  - 256
+  - 1024
+fp_k: [1, 3, 3]

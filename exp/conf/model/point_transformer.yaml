@@ -1,0 +1,35 @@
+# PointTransformerConfig structure
+# It consumes much more GPU memory than other models.
+# We use batch-size=30 with accumulation=8 to achieve 240 batch-size/gpu.
+name: point_transformer
+d_model: ${model_width}
+num_layers: ${model_depth}
+
+# lifting part
+embed_position:
+  name: sinusoidal
+  num_freqs: 16
+  min_freqs_exp: -1.0
+  max_freqs_exp: 6.0
+
+lifting:
+  num_hidden_layers: 0
+  hidden_features: ${model_width}
+  act: "silu"
+  bias: true
+
+# project part
+project:
+  num_hidden_layers: -1
+  hidden_features: ${model_width}
+  act: "silu"
+  bias: true
+
+# PointTransformer Block
+# TODO: Confirm neighbor graph preference (knn vs radius).
+# Reason: Current implementation uses knn_graph consistent with PyG examples.
+k: 16
+pos_mlp_hidden: ${model_width}
+act: "silu"
+bias: true
+norm_type: "layer"

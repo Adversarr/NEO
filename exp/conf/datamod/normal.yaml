@@ -1,0 +1,10 @@
+name: normal
+batch_size: ${batch_size}
+data_dir: ldata/processed_shapenet_normals
+split_ratio: 0.9
+
+enable_rotate: 6.283
+num_workers: 4
+pin_memory: True
+prefetch_factor: 4
+limit_train: 0
