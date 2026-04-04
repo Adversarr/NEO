@@ -3,474 +3,450 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
+
   <!-- Primary Meta Tags -->
-  <!-- TODO: Replace with your paper title and author names -->
-  <meta name="title" content="PAPER_TITLE - AUTHOR_NAMES">
-  <!-- TODO: Write a compelling 150-160 character description of your research -->
-  <meta name="description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
-  <!-- TODO: Add 5-10 relevant keywords for your research area -->
-  <meta name="keywords" content="KEYWORD1, KEYWORD2, KEYWORD3, machine learning, computer vision, AI">
-  <!-- TODO: List all authors -->
-  <meta name="author" content="FIRST_AUTHOR_NAME, SECOND_AUTHOR_NAME">
+  <meta name="title" content="NEO: Learning Laplacian Eigenspace with Mass-Aware Neural Operators on Point Clouds">
+  <meta name="description" content="NEO is a feed-forward framework that predicts the low-frequency Laplace-Beltrami eigenspace directly from point clouds, replacing expensive iterative eigensolvers with rapid neural inference and Rayleigh-Ritz refinement.">
+  <meta name="keywords" content="Laplace-Beltrami, eigenspace, neural operator, point cloud, spectral geometry, geometry processing, shape analysis, machine learning, SIGGRAPH">
+  <meta name="author" content="Zherui Yang, Tao Du, Ligang Liu">
   <meta name="robots" content="index, follow">
   <meta name="language" content="English">
-  
+
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="article">
-  <!-- TODO: Replace with your institution or lab name -->
-  <meta property="og:site_name" content="INSTITUTION_OR_LAB_NAME">
-  <!-- TODO: Same as paper title above -->
-  <meta property="og:title" content="PAPER_TITLE">
-  <!-- TODO: Same as description above -->
-  <meta property="og:description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
-  <!-- TODO: Replace with your actual website URL -->
-  <meta property="og:url" content="https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE">
-  <!-- TODO: Create a 1200x630px preview image and update path -->
-  <meta property="og:image" content="https://YOUR_DOMAIN.com/static/images/social_preview.png">
+  <meta property="og:site_name" content="NEO Project">
+  <meta property="og:title" content="NEO: Learning Laplacian Eigenspace with Mass-Aware Neural Operators on Point Clouds">
+  <meta property="og:description" content="A feed-forward framework that predicts the low-frequency LBO eigenspace from point clouds with near-linear runtime scaling.">
+  <meta property="og:url" content="https://adversarr.github.io/NEO">
+  <meta property="og:image" content="https://adversarr.github.io/NEO/static/images/paper/teaser.jpg">
   <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="PAPER_TITLE - Research Preview">
-  <meta property="article:published_time" content="2024-01-01T00:00:00.000Z">
-  <meta property="article:author" content="FIRST_AUTHOR_NAME">
-  <meta property="article:section" content="Research">
-  <meta property="article:tag" content="KEYWORD1">
-  <meta property="article:tag" content="KEYWORD2">
+  <meta property="og:image:height" content="400">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <!-- TODO: Replace with your lab/institution Twitter handle -->
-  <meta name="twitter:site" content="@YOUR_TWITTER_HANDLE">
-  <!-- TODO: Replace with first author's Twitter handle -->
-  <meta name="twitter:creator" content="@AUTHOR_TWITTER_HANDLE">
-  <!-- TODO: Same as paper title above -->
-  <meta name="twitter:title" content="PAPER_TITLE">
-  <!-- TODO: Same as description above -->
-  <meta name="twitter:description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
-  <!-- TODO: Same as social preview image above -->
-  <meta name="twitter:image" content="https://YOUR_DOMAIN.com/static/images/social_preview.png">
-  <meta name="twitter:image:alt" content="PAPER_TITLE - Research Preview">
+  <meta name="twitter:title" content="NEO: Learning Laplacian Eigenspace with Mass-Aware Neural Operators on Point Clouds">
+  <meta name="twitter:description" content="A feed-forward framework that predicts the low-frequency LBO eigenspace from point clouds with near-linear runtime scaling.">
+  <meta name="twitter:image" content="https://adversarr.github.io/NEO/static/images/paper/teaser.jpg">
 
   <!-- Academic/Research Specific -->
-  <meta name="citation_title" content="PAPER_TITLE">
-  <meta name="citation_author" content="FIRST_AUTHOR_LAST, FIRST_AUTHOR_FIRST">
-  <meta name="citation_author" content="SECOND_AUTHOR_LAST, SECOND_AUTHOR_FIRST">
-  <meta name="citation_publication_date" content="2024">
-  <meta name="citation_conference_title" content="CONFERENCE_NAME">
-  <meta name="citation_pdf_url" content="https://YOUR_DOMAIN.com/static/pdfs/paper.pdf">
-  
-  <!-- Additional SEO -->
+  <meta name="citation_title" content="Learning Laplacian Eigenspace with Mass-Aware Neural Operators on Point Clouds">
+  <meta name="citation_author" content="Yang, Zherui">
+  <meta name="citation_author" content="Du, Tao">
+  <meta name="citation_author" content="Liu, Ligang">
+  <meta name="citation_publication_date" content="2026">
+  <meta name="citation_conference_title" content="SIGGRAPH 2026">
+
   <meta name="theme-color" content="#2563eb">
-  <meta name="msapplication-TileColor" content="#2563eb">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  
+
   <!-- Preconnect for performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://ajax.googleapis.com">
-  <link rel="preconnect" href="https://documentcloud.adobe.com">
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
 
+  <title>NEO: Learning Laplacian Eigenspace with Mass-Aware Neural Operators on Point Clouds</title>
 
-  <!-- TODO: Replace with your paper title and authors -->
-  <title>PAPER_TITLE - AUTHOR_NAMES | Academic Research</title>
-  
-  <!-- Favicon and App Icons -->
   <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
-  <link rel="apple-touch-icon" href="static/images/favicon.ico">
-  
-  <!-- Critical CSS - Load synchronously -->
+
+  <!-- CSS -->
   <link rel="stylesheet" href="static/css/bulma.min.css">
   <link rel="stylesheet" href="static/css/index.css">
-  
-  <!-- Non-critical CSS - Load asynchronously -->
-  <link rel="preload" href="static/css/bulma-carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="static/css/bulma-slider.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <link rel="preload" href="static/css/fontawesome.all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <link rel="preload" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  
-  <!-- Fallback for browsers that don't support preload -->
   <noscript>
-    <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
-    <link rel="stylesheet" href="static/css/bulma-slider.min.css">
     <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   </noscript>
-  
-  <!-- Fonts - Optimized loading -->
+
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  
-  <!-- Defer non-critical JavaScript -->
+
   <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
   <script defer src="static/js/fontawesome.all.min.js"></script>
-  <script defer src="static/js/bulma-carousel.min.js"></script>
-  <script defer src="static/js/bulma-slider.min.js"></script>
   <script defer src="static/js/index.js"></script>
-  
-  <!-- Structured Data for Academic Papers -->
+
+  <!-- MathJax -->
+  <script>
+    MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <!-- Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "ScholarlyArticle",
-    "headline": "PAPER_TITLE",
-    "description": "BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS",
+    "headline": "Learning Laplacian Eigenspace with Mass-Aware Neural Operators on Point Clouds",
     "author": [
-      {
-        "@type": "Person",
-        "name": "FIRST_AUTHOR_NAME",
-        "affiliation": {
-          "@type": "Organization",
-          "name": "INSTITUTION_NAME"
-        }
-      },
-      {
-        "@type": "Person",
-        "name": "SECOND_AUTHOR_NAME",
-        "affiliation": {
-          "@type": "Organization",
-          "name": "INSTITUTION_NAME"
-        }
-      }
+      {"@type": "Person", "name": "Zherui Yang", "affiliation": {"@type": "Organization", "name": "University of Science and Technology of China"}},
+      {"@type": "Person", "name": "Tao Du", "affiliation": {"@type": "Organization", "name": "Tsinghua University"}},
+      {"@type": "Person", "name": "Ligang Liu", "affiliation": {"@type": "Organization", "name": "University of Science and Technology of China"}}
     ],
-    "datePublished": "2024-01-01",
-    "publisher": {
-      "@type": "Organization",
-      "name": "CONFERENCE_OR_JOURNAL_NAME"
-    },
-    "url": "https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE",
-    "image": "https://YOUR_DOMAIN.com/static/images/social_preview.png",
-    "keywords": ["KEYWORD1", "KEYWORD2", "KEYWORD3", "machine learning", "computer vision"],
-    "abstract": "FULL_ABSTRACT_TEXT_HERE",
-    "citation": "BIBTEX_CITATION_HERE",
-    "isAccessibleForFree": true,
-    "license": "https://creativecommons.org/licenses/by/4.0/",
-    "mainEntity": {
-      "@type": "WebPage",
-      "@id": "https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE"
-    },
-    "about": [
-      {
-        "@type": "Thing",
-        "name": "RESEARCH_AREA_1"
-      },
-      {
-        "@type": "Thing", 
-        "name": "RESEARCH_AREA_2"
-      }
-    ]
-  }
-  </script>
-  
-  <!-- Website/Organization Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "INSTITUTION_OR_LAB_NAME",
-    "url": "https://YOUR_INSTITUTION_WEBSITE.com",
-    "logo": "https://YOUR_DOMAIN.com/static/images/favicon.ico",
-    "sameAs": [
-      "https://twitter.com/YOUR_TWITTER_HANDLE",
-      "https://github.com/YOUR_GITHUB_USERNAME"
-    ]
+    "datePublished": "2026",
+    "publisher": {"@type": "Organization", "name": "ACM SIGGRAPH"},
+    "url": "https://adversarr.github.io/NEO",
+    "isAccessibleForFree": true
   }
   </script>
 </head>
 <body>
-
 
   <!-- Scroll to Top Button -->
   <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
     <i class="fas fa-chevron-up"></i>
   </button>
 
-  <!-- More Works Dropdown -->
-  <div class="more-works-container">
-    <button class="more-works-btn" onclick="toggleMoreWorks()" title="View More Works from Our Lab">
-      <i class="fas fa-flask"></i>
-      More Works
-      <i class="fas fa-chevron-down dropdown-arrow"></i>
-    </button>
-    <div class="more-works-dropdown" id="moreWorksDropdown">
-      <div class="dropdown-header">
-        <h4>More Works from Our Lab</h4>
-        <button class="close-btn" onclick="toggleMoreWorks()">
-          <i class="fas fa-times"></i>
-        </button>
-      </div>
-      <div class="works-list">
-        <!-- TODO: Replace with your lab's related works -->
-        <a href="https://arxiv.org/abs/PAPER_ID_1" class="work-item" target="_blank">
-          <div class="work-info">
-            <!-- TODO: Replace with actual paper title -->
-            <h5>Paper Title 1</h5>
-            <!-- TODO: Replace with brief description -->
-            <p>Brief description of the work and its main contribution.</p>
-            <!-- TODO: Replace with venue and year -->
-            <span class="work-venue">Conference/Journal 2024</span>
-          </div>
-          <i class="fas fa-external-link-alt"></i>
-        </a>
-        <!-- TODO: Add more related works or remove extra items -->
-        <a href="https://arxiv.org/abs/PAPER_ID_2" class="work-item" target="_blank">
-          <div class="work-info">
-            <h5>Paper Title 2</h5>
-            <p>Brief description of the work and its main contribution.</p>
-            <span class="work-venue">Conference/Journal 2023</span>
-          </div>
-          <i class="fas fa-external-link-alt"></i>
-        </a>
-        <a href="https://arxiv.org/abs/PAPER_ID_3" class="work-item" target="_blank">
-          <div class="work-info">
-            <h5>Paper Title 3</h5>
-            <p>Brief description of the work and its main contribution.</p>
-            <span class="work-venue">Conference/Journal 2023</span>
-          </div>
-          <i class="fas fa-external-link-alt"></i>
-        </a>
-      </div>
-    </div>
-  </div>
-
   <main id="main-content">
+
+  <!-- ==================== HERO ==================== -->
   <section class="hero">
     <div class="hero-body">
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <!-- TODO: Replace with your paper title -->
-            <h1 class="title is-1 publication-title">Academic Project Page</h1>
+            <h1 class="title is-1 publication-title">NEO: Learning Laplacian Eigenspace with Mass-Aware Neural Operators on Point Clouds</h1>
             <div class="is-size-5 publication-authors">
-              <!-- TODO: Replace with your paper authors and their personal links -->
               <span class="author-block">
-                <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">First Author</a><sup>*</sup>,</span>
-                <span class="author-block">
-                  <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Second Author</a><sup>*</sup>,</span>
-                  <span class="author-block">
-                    <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Third Author</a>
-                  </span>
-                  </div>
-
-                  <div class="is-size-5 publication-authors">
-                    <!-- TODO: Replace with your institution and conference/journal info -->
-                    <span class="author-block">Institution Name<br>Conference name and year</span>
-                    <!-- TODO: Remove this line if no equal contribution -->
-                    <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>
-                  </div>
-
-                  <div class="column has-text-centered">
-                    <div class="publication-links">
-                         <!-- TODO: Update with your arXiv paper ID -->
-                      <span class="link-block">
-                        <a href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf" target="_blank"
-                        class="external-link button is-normal is-rounded is-dark">
-                        <span class="icon">
-                          <i class="fas fa-file-pdf"></i>
-                        </span>
-                        <span>Paper</span>
-                      </a>
-                    </span>
-
-                    <!-- TODO: Add your supplementary material PDF or remove this section -->
-                    <span class="link-block">
-                      <a href="static/pdfs/supplementary_material.pdf" target="_blank"
-                      class="external-link button is-normal is-rounded is-dark">
-                      <span class="icon">
-                        <i class="fas fa-file-pdf"></i>
-                      </span>
-                      <span>Supplementary</span>
-                    </a>
-                  </span>
-
-                  <!-- TODO: Replace with your GitHub repository URL -->
-                  <span class="link-block">
-                    <a href="https://github.com/YOUR REPO HERE" target="_blank"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fab fa-github"></i>
-                    </span>
-                    <span>Code</span>
-                  </a>
-                </span>
-
-                <!-- TODO: Update with your arXiv paper ID -->
-                <span class="link-block">
-                  <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
-                  class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span>
-                </a>
+                <a href="https://github.com/Adversarr" target="_blank">Zherui Yang</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="https://people.iiis.tsinghua.edu.cn/~taodu" target="_blank">Tao Du</a><sup>2,3</sup>,</span>
+              <span class="author-block">
+                <a href="http://staff.ustc.edu.cn/~lgliu/" target="_blank">Ligang Liu</a><sup>1&dagger;</sup>
               </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <sup>1</sup>University of Science and Technology of China &nbsp;
+                <sup>2</sup>Tsinghua University &nbsp;
+                <sup>3</sup>Shanghai Qi Zhi Institute
+              </span>
+              <br>
+              <span class="author-block" style="font-weight: 600;">SIGGRAPH 2026 (Conditional Accept)</span>
+              <br>
+              <span class="eql-cntrb"><small><sup>&dagger;</sup>Corresponding Author</small></span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <span class="link-block">
+                  <a href="#" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                  <span>Paper</span>
+                </a></span>
+
+                <span class="link-block">
+                  <a href="#" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="ai ai-arxiv"></i></span>
+                  <span>arXiv</span>
+                </a></span>
+
+                <span class="link-block">
+                  <a href="https://github.com/Adversarr/NEO" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fab fa-github"></i></span>
+                  <span>Code</span>
+                </a></span>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
 
-<!-- Teaser video-->
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <!-- TODO: Replace with your teaser video -->
-      <video poster="" id="tree" autoplay controls muted loop height="100%" preload="metadata">
-        <!-- TODO: Add your video file path here -->
-        <source src="static/videos/banner_video.mp4" type="video/mp4">
-      </video>
-      <!-- TODO: Replace with your video description -->
-      <h2 class="subtitle has-text-centered">
-        Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus. 
-      </h2>
-    </div>
-  </div>
-</section>
-<!-- End teaser video -->
-
-<!-- Paper abstract -->
-<section class="section hero is-light">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <!-- TODO: Replace with your paper abstract -->
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper tellus sed ante aliquam tempus. Etiam porttitor urna feugiat nibh elementum, et tempor dolor mattis. Donec accumsan enim augue, a vulputate nisi sodales sit amet. Proin bibendum ex eget mauris cursus euismod nec et nibh. Maecenas ac gravida ante, nec cursus dui. Vivamus purus nibh, placerat ac purus eget, sagittis vestibulum metus. Sed vestibulum bibendum lectus gravida commodo. Pellentesque auctor leo vitae sagittis suscipit.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End paper abstract -->
-
-
-<!-- Image carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-       <div class="item">
-        <!-- TODO: Replace with your research result images -->
-        <img src="static/images/carousel1.jpg" alt="First research result visualization" loading="lazy"/>
-        <!-- TODO: Replace with description of this result -->
+  <!-- ==================== TEASER ==================== -->
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <img src="static/images/paper/teaser.jpg" alt="NEO teaser: predicted LBO eigenfunctions on diverse 3D shapes and downstream applications" style="width:100%;" />
         <h2 class="subtitle has-text-centered">
-          First image description.
+          NEO predicts the low-frequency Laplace&ndash;Beltrami eigenspace from raw point clouds in a single forward pass.
+          The resulting eigenfunctions enable classical spectral geometry tasks such as shape matching, heat distance computation, and segmentation.
         </h2>
       </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel2.jpg" alt="Second research result visualization" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-          Second image description.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel3.jpg" alt="Third research result visualization" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-         Third image description.
-       </h2>
-     </div>
-     <div class="item">
-      <!-- Your image here -->
-      <img src="static/images/carousel4.jpg" alt="Fourth research result visualization" loading="lazy"/>
-      <h2 class="subtitle has-text-centered">
-        Fourth image description.
-      </h2>
     </div>
-  </div>
-</div>
-</div>
-</section>
-<!-- End image carousel -->
+  </section>
 
 
-
-
-<!-- Youtube video -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <!-- Paper video. -->
-      <h2 class="title is-3">Video Presentation</h2>
+  <!-- ==================== ABSTRACT ==================== -->
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          
-          <div class="publication-video">
-            <!-- TODO: Replace with your YouTube video ID -->
-            <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              The eigendecomposition of the Laplace&ndash;Beltrami Operator (LBO) is fundamental to geometric analysis, yet computing its low-frequency eigenmodes remains a significant bottleneck due to the high cost of iterative solvers on large-scale data.
+              To amortize this cost, we introduce the <strong>Neural Eigenspace Operator (NEO)</strong>, a feed-forward framework designed to predict the spectrum directly from point clouds.
+              Crucially, NEO circumvents the ill-posed nature of standard eigenvector regression&mdash;which suffers from intrinsic sign flips and rotation ambiguities&mdash;by learning the stable, invariant low-frequency subspace instead.
+              Specifically, the network predicts a redundant set of basis functions whose span robustly covers the target eigenspace, allowing for the recovery of accurate eigenpairs via a lightweight Rayleigh&ndash;Ritz refinement.
+              To handle irregular sampling, we propose a <strong>mass-aware neural operator</strong> that incorporates per-point area weights into attention-based aggregation, improving robustness to non-uniform densities and enabling zero-shot generalization across resolutions.
+              Our approach achieves near-linear runtime scaling and substantial wall-clock speedups over iterative solvers at comparable accuracy, and exhibits strong zero-shot transfer to high-resolution samplings.
+              The resulting eigenpairs support standard spectral geometry tasks, while the raw basis functions provide effective point-wise features for downstream learning.
+            </p>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
-<!-- End youtube video -->
+  </section>
 
 
-<!-- Video carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title is-3">Another Carousel</h2>
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-video1">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video1" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel1.mp4" type="video/mp4">
-          </video>
+  <!-- ==================== PIPELINE ==================== -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <h2 class="title is-3">Method Overview</h2>
+          <div class="content has-text-justified">
+            <p>
+              NEO takes a point cloud $X$ with per-point mass weights $w$ as input. A mass-aware neural operator predicts redundant basis functions $F \in \mathbb{R}^{N \times m}$ in a single forward pass.
+              These are $M$-orthonormalized to obtain a subspace basis $Y$, then the discrete Laplacian is projected into this low-dimensional subspace.
+              A small dense eigenproblem yields the final LBO eigenfunctions via Rayleigh&ndash;Ritz refinement.
+            </p>
+          </div>
+          <img src="static/images/paper/pipeline.png" alt="NEO inference pipeline" style="width:100%;" loading="lazy" />
+          <p class="has-text-centered" style="margin-top: 0.75rem; color: #555;">
+            <strong>The NEO Inference Pipeline.</strong> From raw point cloud to LBO eigenfunctions: one forward pass through a mass-aware neural operator, followed by $M$-orthonormalization and a lightweight Rayleigh&ndash;Ritz dense eigensolve.
+          </p>
         </div>
-        <div class="item item-video2">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video2" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel2.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video3">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video3" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel3.mp4" type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End video carousel -->
-
-
-
-
-
-
-<!-- Paper poster -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title">Poster</h2>
-
-      <!-- TODO: Replace with your poster PDF -->
-      <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">
-          </iframe>
-        
       </div>
     </div>
   </section>
-<!--End paper poster -->
 
 
+  <!-- ==================== KEY CONTRIBUTIONS ==================== -->
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Key Contributions</h2>
 
-<!--BibTex citation -->
+      <!-- Contribution 1: Subspace Learning + Span Loss -->
+      <div class="columns is-centered" style="margin-top: 1.5rem;">
+        <div class="column is-four-fifths">
+          <h3 class="title is-4">1. Subspace Learning with Span Loss</h3>
+
+          <div class="content has-text-justified">
+            <p>
+              Individual LBO eigenvectors are not uniquely defined: each mode admits a global sign flip, and repeated (or nearly repeated) eigenvalues allow arbitrary rotations within the eigenspace.
+              These ambiguities make direct eigenvector regression ill-posed.
+            </p>
+            <p>
+              NEO instead learns the <em>invariant subspace</em> spanned by the eigenvectors, which is mathematically unique and stable.
+              Rather than outputting exactly $k$ modes, NEO predicts a modestly redundant set of $m$ functions ($m > k$) whose span robustly captures the target eigenspace, providing slack to accommodate repeated or nearby eigenvalues.
+            </p>
+            <p>
+              To train this, we propose a <strong>span loss</strong> that measures how well the predicted subspace covers the ground-truth eigenspace:
+            </p>
+            <p style="text-align: center; font-size: 1.1em;">
+              $\mathcal{L}_{\text{span}} = 1 - \frac{1}{k}\|Y^\top M U_k\|_F^2$
+            </p>
+            <p>
+              This loss is invariant under any orthogonal change of basis $U_k \mapsto U_k R$ for $R \in O(k)$, which includes sign flips and rotations within (near-)degenerate eigenspaces. The condition $\mathcal{L}_{\text{span}} = 0$ implies that every ground-truth mode is perfectly contained within the predicted span, i.e., $\mathrm{span}(U_k) \subseteq \mathrm{span}(Y)$.
+            </p>
+          </div>
+
+          <img src="static/images/paper/ambiguity.png" alt="Eigenvector ambiguities: sign flips, rotations, and mode mixing" style="width:100%;" loading="lazy" />
+          <p class="has-text-centered" style="margin-top: 0.75rem; color: #555;">
+            <strong>Ambiguities in LBO eigenvectors.</strong> (Left) Rotations within a degenerate eigenspace. (Middle) Sign flips. (Right) Mode mixing near spectral clusters. These ambiguities make direct eigenvector regression ill-posed, motivating our subspace-level learning with span loss.
+          </p>
+        </div>
+      </div>
+
+      <!-- Contribution 2: Mass-Aware Neural Operator -->
+      <div class="columns is-centered" style="margin-top: 2.5rem;">
+        <div class="column is-four-fifths">
+          <h3 class="title is-4">2. Mass-Aware Neural Operator</h3>
+
+          <div class="content has-text-justified">
+            <p>
+              Standard attention-based aggregation implicitly assumes uniform sampling, which biases the operator toward densely sampled regions and hurts cross-resolution generalization.
+              We propose injecting per-point mass weights $w$ directly into the cross-attention logits, transforming the aggregation into a consistent quadrature rule:
+            </p>
+            <p style="text-align: center; font-size: 1.1em;">
+              $\alpha'_{ij} = \mathrm{softmax}\!\left(\frac{q_i k_j^\top}{\sqrt{d_h}} + \log w_j\right)$
+            </p>
+            <p>
+              Since $\exp(s + \log w_j) = \exp(s) \cdot w_j$, the mass term emerges as a multiplicative quadrature weight outside the exponential kernel, making the aggregation consistent with area-weighted integration on non-uniform point clouds. This modification is invariant to the global scale of $w$ and exactly recovers standard attention when the mass weights are constant.
+            </p>
+          </div>
+
+          <img src="static/images/paper/mass-aware-arch.png" alt="Mass-aware neural operator architecture" style="width:100%;" loading="lazy" />
+          <p class="has-text-centered" style="margin-top: 0.75rem; color: #555;">
+            <strong>Neural Operator with Mass Injection.</strong> (Top) The latent-bottleneck design efficiently processes high-resolution geometry via global tokens. (Bottom) The down-projection incorporates point masses via a logarithmic bias in the cross-attention, approximating a continuous measure-weighted integral.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==================== RESULTS ==================== -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Results</h2>
+
+      <!-- Accuracy -->
+      <div class="columns is-centered" style="margin-bottom: 2.5rem; margin-top: 1.5rem;">
+        <div class="column is-four-fifths">
+          <h3 class="title is-4">Accuracy</h3>
+          <div class="content has-text-justified">
+            <p>
+              NEO achieves low span loss across all target modes. The Rayleigh&ndash;Ritz refinement recovers eigenvectors and eigenvalues with low error. The method is numerically stable even under half-precision (FP16) inference.
+            </p>
+          </div>
+          <img src="static/images/paper/accuracy.png" alt="Accuracy distribution: span loss, eigenvector MSE, and eigenvalue error" style="width:100%;" loading="lazy" />
+          <p class="has-text-centered" style="margin-top: 0.75rem; color: #555;">
+            <strong>Accuracy distribution on the ShapeNet test set.</strong> (Left/Middle) Per-mode Span Loss and Eigenvector MSE. Solid lines: median; shaded bands: IQR. (Right) Density of mean relative eigenvalue error.
+          </p>
+        </div>
+      </div>
+
+      <!-- Runtime -->
+      <div class="columns is-centered" style="margin-bottom: 2.5rem;">
+        <div class="column is-four-fifths">
+          <h3 class="title is-4">Runtime Scaling</h3>
+          <div class="content has-text-justified">
+            <p>
+              NEO scales near-linearly with the number of points, delivering substantial wall-clock speedups over ARPACK (the standard iterative eigensolver). The method is trained exclusively on 2K-point clouds but generalizes zero-shot to over one million points.
+            </p>
+          </div>
+          <img src="static/images/paper/runtime.png" alt="Runtime comparison: NEO vs ARPACK across resolutions" style="width:100%;" loading="lazy" />
+          <p class="has-text-centered" style="margin-top: 0.75rem; color: #555;">
+            <strong>Runtime scaling.</strong> NEO (GPU) vs. ARPACK (CPU) for $k{=}96$ eigenpairs, from 512 to 1.6M points.
+          </p>
+        </div>
+      </div>
+
+      <!-- Non-uniform robustness -->
+      <div class="columns is-centered" style="margin-bottom: 2.5rem;">
+        <div class="column">
+          <h3 class="title is-4">Robustness to Non-Uniform Sampling</h3>
+          <div class="content has-text-justified">
+            <p>
+              We visualize recovered eigenvectors under varying sampling density biases. While the mass-agnostic baseline fails under biased sampling, our mass-aware approach consistently matches the ground truth. This confirms that injecting mass measures effectively decouples the learned features from sampling density.
+            </p>
+          </div>
+          <img src="static/images/paper/non-uniform-robustness.jpg" alt="Robustness to non-uniform sampling" style="width:100%;" loading="lazy" />
+          <p class="has-text-centered" style="margin-top: 0.75rem; color: #555;">
+            <strong>Robustness to non-uniform sampling.</strong> Recovered eigenvectors (10th&ndash;12th modes) under varying sampling density biases, from highly non-uniform (top) to uniform (bottom). The mass-agnostic baseline (left) fails under biased sampling; our mass-aware NEO (right) consistently matches ground truth.
+          </p>
+        </div>
+      </div>
+
+      <!-- Cross-resolution & discretization transfer -->
+      <div class="columns is-centered" style="margin-bottom: 2.5rem;">
+        <div class="column">
+          <h3 class="title is-4">Cross-Resolution &amp; Discretization Transfer</h3>
+          <div class="content has-text-justified">
+            <p>
+              Despite being trained only on coarse 2K point clouds, NEO demonstrates strong zero-shot generalization across resolutions (2K to 1.6M) and distinct Laplacian discretizations (intrinsic Delaunay vs. $k$-NN graph). While ARPACK's cost grows super-linearly, NEO achieves over $100\times$ speedup at 1.6M points.
+            </p>
+          </div>
+          <img src="static/images/paper/cross-resolution.jpg" alt="Resolution scaling and discretization transfer" style="width:100%;" loading="lazy" />
+          <p class="has-text-centered" style="margin-top: 0.75rem; color: #555;">
+            <strong>Resolution scaling and discretization transfer.</strong> NEO's predicted eigenfunctions (modes 2, 4, 32) compared against ground truth across varying resolutions and Laplacian discretizations (Mesh vs. $k$-NN). Runtime columns highlight the efficiency gain.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==================== GALLERY ==================== -->
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Gallery</h2>
+      <div class="content has-text-justified">
+        <p>
+          Visualization of NEO predictions on our out-of-distribution test dataset, encompassing a wide spectrum of semantic categories, topologies, and structural variations.
+        </p>
+      </div>
+      <img src="static/images/paper/gallery-teaser.jpg" alt="Gallery of NEO predictions on diverse shapes" style="width:100%;" loading="lazy" />
+    </div>
+  </section>
+
+
+  <!-- ==================== DOWNSTREAM APPLICATIONS ==================== -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Downstream Applications</h2>
+      <div class="content has-text-justified" style="margin-bottom: 2rem;">
+        <p>
+          The eigenpairs recovered by NEO can be directly plugged into standard spectral geometry pipelines. The raw predicted basis functions also serve as effective point-wise features for downstream learning tasks.
+        </p>
+      </div>
+
+      <!-- Segmentation -->
+      <div class="columns is-centered" style="margin-bottom: 2.5rem;">
+        <div class="column">
+          <h3 class="title is-4">Segmentation (NEO + PointNet)</h3>
+          <div class="content has-text-justified">
+            <p>
+              By providing geometry-aware spectral context, NEO+PointNet successfully distinguishes topologically distinct parts that are spatially adjacent&mdash;such as separating hands resting on thighs&mdash;where coordinate-based methods often fail due to Euclidean proximity.
+            </p>
+          </div>
+          <img src="static/images/paper/segmentation-compare.jpg" alt="Segmentation comparison: NEO+PointNet vs positional encoding" style="width:100%;" loading="lazy" />
+          <p class="has-text-centered" style="margin-top: 0.75rem; color: #555;">
+            <strong>Segmentation via NEO.</strong> Comparison of segmentation results using our predicted basis ($F$) versus sinusoidal positional encoding (NeRF-PE).
+          </p>
+        </div>
+      </div>
+
+      <!-- Functional Maps -->
+      <div class="columns is-centered" style="margin-bottom: 2.5rem;">
+        <div class="column is-two-thirds">
+          <h3 class="title is-4">Shape Matching via Functional Maps</h3>
+          <div class="content has-text-justified">
+            <p>
+              NEO-predicted eigenpairs enable accurate functional map computation for non-rigid shape correspondence. While NEO yields a slightly higher geodesic error numerically, the visual correspondence remains semantically consistent and smooth.
+            </p>
+          </div>
+          <img src="static/images/paper/fmap.png" alt="Functional map correspondence between cat and lion" style="width:100%;" loading="lazy" />
+          <p class="has-text-centered" style="margin-top: 0.75rem; color: #555;">
+            <strong>Functional map correspondence.</strong> Transfer results between a cat and a lion using HKS descriptors derived from exact vs. NEO eigenpairs.
+          </p>
+        </div>
+      </div>
+
+      <!-- Heat Geodesic -->
+      <div class="columns is-centered" style="margin-bottom: 2.5rem;">
+        <div class="column is-two-thirds">
+          <h3 class="title is-4">Heat-Based Geodesic Distance</h3>
+          <div class="content has-text-justified">
+            <p>
+              NEO provides a warm start for Poisson-based solvers: by projecting the right-hand side onto the predicted spectral subspace, the initial guess already captures most of the low-frequency solution energy, leading to faster iterative convergence.
+            </p>
+          </div>
+          <img src="static/images/paper/heat-geodesic.png" alt="Fast Poisson solve for heat-based geodesic computation" style="width:100%;" loading="lazy" />
+          <p class="has-text-centered" style="margin-top: 0.75rem; color: #555;">
+            <strong>Fast Poisson solve.</strong> Heat-based geodesic computation with convergence analysis. NEO's warm start accelerates convergence over standard ICPCG.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==================== FAILURE CASE ==================== -->
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3 has-text-centered">Limitations</h2>
+          <div class="content has-text-justified">
+            <p>
+              We identify two main limitations: (1) <em>Frequency degradation:</em> accuracy drops for higher modes where the spectral gap narrows and oscillations become harder to approximate. (2) <em>Unseen fine details:</em> the model struggles with thin structures or complex topological details that differ significantly from the coarse geometry seen during training.
+            </p>
+          </div>
+          <img src="static/images/paper/failure-case.jpg" alt="Failure cases: frequency degradation and unseen fine details" style="width:100%;" loading="lazy" />
+          <p class="has-text-centered" style="margin-top: 0.75rem; color: #555;">
+            <strong>Failure cases.</strong> (Left) Higher-mode degradation with narrowing spectral gaps. (Right) Difficulty with thin structures and unseen topological details.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==================== BIBTEX ==================== -->
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
       <div class="bibtex-header">
@@ -480,41 +456,32 @@
           <span class="copy-text">Copy</span>
         </button>
       </div>
-      <pre id="bibtex-code"><code>@article{YourPaperKey2024,
-  title={Your Paper Title Here},
-  author={First Author and Second Author and Third Author},
-  journal={Conference/Journal Name},
-  year={2024},
-  url={https://your-domain.com/your-project-page}
+      <pre id="bibtex-code"><code>@article{yang2026neo,
+  title={Learning Laplacian Eigenspace with Mass-Aware Neural Operators on Point Clouds},
+  author={Yang, Zherui and Du, Tao and Liu, Ligang},
+  journal={ACM Transactions on Graphics (Proc. SIGGRAPH)},
+  year={2026}
 }</code></pre>
     </div>
-</section>
-<!--End BibTex citation -->
+  </section>
 
 
+  <!-- ==================== FOOTER ==================== -->
   <footer class="footer">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
-
-          <p>
-            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
-            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
-
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+              This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</footer>
+  </footer>
 
-<!-- Statcounter tracking code -->
-  
-<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
-
-    <!-- End of Statcounter Code -->
-
-  </body>
-  </html>
+  </main>
+</body>
+</html>
